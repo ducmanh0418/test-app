@@ -1,0 +1,12 @@
+theme: {
+              header: {
+                bold: true,
+                fontName: "Calibri",
+                fontSize: 10
+              },
+              record: {
+                fontColor: "#0000ff",
+                fontName: "Calibri",
+                fontSize: 8
+              }
+            }
