@@ -1,4 +1,12 @@
-theme: {
+methods:{
+    gridExport(args){
+      var girdInst = this.$refs.grid;
+      if(girdInst){
+        if(args.item.id.includes('pdfexport')){
+          girdInst.pdfExport({
+            fileName: "invoice.pdf",
+            exportType: "CurrentPage",
+            theme: {
               header: {
                 bold: true,
                 fontName: "Calibri",
@@ -9,4 +17,66 @@ theme: {
                 fontName: "Calibri",
                 fontSize: 8
               }
+            },
+            header:{
+              fromTop: 0,
+              height: 130,
+              contents: [{
+                type: "Text",
+                value: "Northwind Traders",
+                position: { x: 0, y: 50 },
+                style: { fontSize: 20 }
+              }]
+            },
+            footer: {
+              contents: [{
+                type: "Text",
+                value: "Thank You",
+                position: { x: 0, y: 50 },
+                style: { fontSize: 20 }
+              }],
+              fromBottom: 130,
+              height: 130
             }
+          });
+        } else if(args.item.id.includes('excelexport')){
+          girdInst.excelExport({
+            fileName: "invoice.xlsx",
+            exportType: "CurrentPage",
+            theme: {
+              header: {
+                bold: true,
+                fontName: "Calibri",
+                fontSize: 10
+              },
+              record: {
+                fontColor: "#0000ff",
+                fontName: "Calibri",
+                fontSize: 8
+              }
+            },
+            header: {
+              headerRows: 1,
+              rows: [{
+                cells: [{
+                  colSpan: 4,
+                  value: 'Northwind Traders',
+                  style: { fontSize: 20, hAlign: 'Center', bold: true }
+                }]
+              }]
+            },
+            footer: {
+              footerRows: 1,
+              rows: [{
+                cells: [{
+                  colSpan: 4,
+                  value: 'Thank You',
+                  style: { fontSize: 20, hAlign: 'Center', bold: true }
+                }]
+              }]
+            }
+          })
+        }
+      }
+    }
+  },
