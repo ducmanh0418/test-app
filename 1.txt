@@ -1,0 +1,2 @@
+let wopts = { bookType: 'xlsx', bookSST: false, type: 'binary', cellStyles: true, defaultCellStyle: defaultCellStyle, showGridLines: false }  //写入的样式
+    let wbout = XLSX.write(wb, wopts)
